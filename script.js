@@ -4,8 +4,12 @@ const baseCoin = groups[1];
 
 const amount = document.querySelector('.amount');
 const result = document.querySelector('.result');
+const convertButton = document.querySelector('.convertButton');
 
-const button = document.querySelector('button');
+const fromDate = document.querySelector('.from-date');
+const toDate = document.querySelector('.to-date');
+const archiveButton = document.querySelector('.archiveButton');
+const archiveRatesList = document.querySelector('.archive-rates-list');
 
 // 1. Gets all needed data from site
 function getCoins (params) {
@@ -18,8 +22,14 @@ function getCoins (params) {
 
   return fetch(address)
     .then(function(response) {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
       
       return response.json();
+    })
+    .catch(function(error) {
+      console.error('Error:', error);
     })
 }
 
@@ -57,7 +67,7 @@ function convertCoin() {
   }
 
   if (targetCoin.value === baseCoin.value && amount.value !== "") {
-    result.textContent = amount.value;
+    result.textContent = `${amount.value} ${baseCoin.value}`;
   }
 
   const params = getParams(amount.value, targetCoin.value, baseCoin.value);
@@ -65,15 +75,48 @@ function convertCoin() {
   // (getCoins() is called with arguments)
   getCoins (params)
     .then(function(data) {
-        result.textContent = Object.values(data.rates);
+        result.textContent = `${amount.value} ${targetCoin.value} = ${Object.values(data.rates)} ${baseCoin.value}`;
     })
 }
 
-// Processing of all functions
+// 5. Shows the exchange rate in previous time periods
+function generateArchiveRates() {
+  return fetch(`https://api.frankfurter.app/${fromDate.value}..${toDate.value}?to=${baseCoin.value}&from=${targetCoin.value}`)
+    .then(function(response) {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .catch(function(error) {
+      console.error('Error:', error);
+    })
+    .then(function(data) {
+      // if the page already contains some archive data, it will be deleted
+      archiveRatesList.innerHTML = '';
+
+      // checks if there is some data about rates > add title 'Archive rates' on the page
+      if (data.rates != '') {
+        const archiveListTitle = document.createElement('h2');
+        archiveListTitle.textContent = 'Archive rates';
+        archiveRatesList.appendChild(archiveListTitle);
+      }
+      
+      // add data about archive rates on the page
+      for (const day in data.rates) {
+        const archiveElement = document.createElement('li');
+        archiveElement.textContent = `by the date of ${day}, the exchange rate of ${targetCoin.value} was ${Object.values(data.rates[day])} ${baseCoin.value}`;
+        
+        archiveRatesList.appendChild(archiveElement);
+      }
+    })
+}
+
+// 6. Processes of all functions
 function main() {
   setCoinsList();
   
-  button.addEventListener('click', convertCoin);
+  convertButton.addEventListener('click', convertCoin);
 
   // Press "Enter" === click button
   document.addEventListener('keydown', function (evt) {
@@ -89,6 +132,8 @@ function main() {
       result.textContent = "----";
     }
   });
+
+  archiveButton.addEventListener('click', generateArchiveRates);
 }
 
 // Call main function after the page is loaded
