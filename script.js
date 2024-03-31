@@ -1,3 +1,4 @@
+// Preparing all elements needed to use
 const groups = document.querySelector('.select-group').children;
 const targetCoin = groups[0];
 const baseCoin = groups[1];
@@ -23,7 +24,7 @@ function getCoins (params) {
   return fetch(address)
     .then(function(response) {
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error('Network response was not ok: ' + response.status);
       }
       
       return response.json();
@@ -84,8 +85,9 @@ function generateArchiveRates() {
   return fetch(`https://api.frankfurter.app/${fromDate.value}..${toDate.value}?to=${baseCoin.value}&from=${targetCoin.value}`)
     .then(function(response) {
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error('Network response was not ok: ' + response.status);
       }
+
       return response.json();
     })
     .catch(function(error) {
@@ -100,6 +102,11 @@ function generateArchiveRates() {
         const archiveListTitle = document.createElement('h2');
         archiveListTitle.textContent = 'Archive rates';
         archiveRatesList.appendChild(archiveListTitle);
+      }
+
+      // checks if both dates are not empty
+      if ((fromDate.value && toDate.value) === "") {
+        archiveRatesList.innerHTML = '';
       }
       
       // add data about archive rates on the page
