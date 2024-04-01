@@ -1,11 +1,13 @@
+import { ADDRESS } from '../constants.js';
+
 // 1. Gets all needed data from site
 function getCoins (params) {
   let address = '';
   // if function is called without arguments, data will be fetched from "/latest". 
   // Otherwise from "?amount=AMOUNT&from='CURRENCY1'&to='CURRENCY2'"
   if (!params) {
-    address = 'https://api.frankfurter.app/latest'
-  } else address = 'https://api.frankfurter.app/latest' + params;
+    address = ADDRESS;
+  } else address = ADDRESS + params;
 
   return fetch(address)
     .then(function(response) {
@@ -16,7 +18,7 @@ function getCoins (params) {
       return response.json();
     })
     .catch(function(error) {
-      console.error('Error:', error);
+      alert(`There is no information about this currency pair (${error})`);
     })
 }
 

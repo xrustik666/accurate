@@ -1,5 +1,5 @@
 import { getCoins } from './getcoins.js';
-import { groups, targetCoin, baseCoin, amount, result, convertButton, fromDate, toDate, archiveButton, archiveRatesList } from '../elements.js';
+import { groups } from '../elements.js';
 
 // 2. Gets currencies names. Append them into select lists
 // (getCoins() is called without arguments)

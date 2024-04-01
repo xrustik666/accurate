@@ -1,7 +1,7 @@
 // 4. Currencies convertor. Will be called when button is clicked or "Enter" is pressed
 import { getCoins } from './getcoins.js';
 import {getParams } from './getparams.js';
-import { groups, targetCoin, baseCoin, amount, result, convertButton, fromDate, toDate, archiveButton, archiveRatesList } from '../elements.js';
+import { targetCoin, baseCoin, amount, result } from '../elements.js';
 
 function convertCoin() {
   if (amount.value === "") {

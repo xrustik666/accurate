@@ -1,4 +1,4 @@
-import { groups, targetCoin, baseCoin, amount, result, convertButton, fromDate, toDate, archiveButton, archiveRatesList } from '../elements.js';
+import { targetCoin, baseCoin, fromDate, toDate, archiveRatesList } from '../elements.js';
 
 // 5. Shows the exchange rate in previous time periods
 function generateArchiveRates() {
@@ -11,7 +11,7 @@ function generateArchiveRates() {
       return response.json();
     })
     .catch(function(error) {
-      console.error('Error:', error);
+      alert(`There are temporary problems at server. Please try to request archive data later (${error})`)
     })
     .then(function(data) {
       // if the page already contains some archive data, it will be deleted
