@@ -9,6 +9,10 @@ body {
   padding: 0;
 }
 
+body h1, .app-description {
+  text-align: center;
+}
+
 .currencies-form {
   max-width: 600px;
   margin: 0 auto;
