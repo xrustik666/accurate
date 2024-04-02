@@ -1,5 +1,5 @@
-# AccuRate
-This application is called AccuRate. It shows you exchange rates of world's most popular currencies. In the "About" section you will find a [link](https://xrustik666.github.io/accurate/) to the deployed project and will be able to evaluate how it works.
+# About the project
+This application is called **AccuRate**. It shows you exchange rates of world's most popular currencies. In the "About" section you will find a [link](https://xrustik666.github.io/accurate/) to the deployed project and will be able to evaluate how it works.
 
 # What this app can do
 All you need is to choose currency pair. Select target currency (which rate you want to know) > select base currency (in which you would like to see the result) > don't forget to enter amount > press "Convert" button.
@@ -12,7 +12,7 @@ Moreover, you also can look archive rates. Choose currency pair > choose needed 
 All data is fetched from [European Central Bank](https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html). API is provided by [Frankfurter](https://www.frankfurter.app/docs/).
 
 # Project structure
-Root folder contains '**index.html**' and '**styles.css**'. These files are responsible for visual design. Also, all data appends to elements that 'index.html' already contains.
+Root folder contains '**index.html**' and '**styles.css**'. These files are responsible for visual design. Also, all data appends to elements that '**index.html**' already contains.
 
 '**resources**' folder contains the logo of the project.
 
