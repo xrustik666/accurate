@@ -9,45 +9,58 @@
   </head>
 
   <body>
-    <h1>AccuRate</h1>
-    <p class="app-description">
-      Free currency converter. Get accurate and relevant foreign exchange rates
-    </p>
+    <header>
+      <h1 class="header">AccuRate</h1>
+      <img src="resources/logo.png">
+    </header>
 
-    <div class="currencies-form">
-      <div class="input-group">
-        <label>Amount:</label>
-        <input
-          type="number"
-          class="amount"
-          placeholder="Enter amount"
-          step=".1"
-          min="0"
-        />
+    <main>
+      <p class="app-description">
+        Free currency converter. Get accurate and relevant foreign exchange rates
+      </p>
+
+      <div class="currencies-form">
+        <div class="input-group">
+          <label>Amount:</label>
+          <input
+            type="number"
+            class="amount"
+            placeholder="Enter amount"
+            step=".1"
+            min="0"
+          />
+        </div>
+
+        <div class="select-group">
+          <select class="target-currency"></select>
+  
+          <select class="base-currency"></select>
+        </div>
+  
+        <div class="result-group">
+          <p class="result">----</p>
+        </div>
+
+        <div class="button-group">
+          <button class="convert-button">Convert</button>
+        </div>
+
+        <div class="date-group">
+          <input type="date" class="from-date" />
+
+          <input type="date" class="to-date" />
+        </div>
+
+        <div class="button-group">
+          <button class="archive-button">Show archive rates</button>
+        </div>
       </div>
-      <div class="select-group">
-        <select class="target-currency"></select>
+    </main>
 
-        <select class="base-currency"></select>
-      </div>
-
-      <div class="result-group">
-        <p class="result">----</p>
-      </div>
-
-      <button class="convertButton">Convert</button>
-
-      <div class="date-group">
-        <input type="date" class="from-date" />
-
-        <input type="date" class="to-date" />
-      </div>
-
-      <button class="archiveButton">Show archive rates</button>
-
+    <div class="archive-results">
       <ul class="archive-rates-list"></ul>
     </div>
 
-    <script type="module" src="src/app.js"></script>
+    <script type="module" src="src/main.js"></script>
   </body>
 </html>

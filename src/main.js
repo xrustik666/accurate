@@ -1,7 +1,8 @@
-import { amount, result, convertButton, archiveButton } from './elements.js';
+import { amount, result, convertButton, archiveButton } from './views/elements.js';
 import { setCoinsList } from './data/setcoinslist.js';
 import { convertCoin } from './data/convertcoin.js';
 import { generateArchiveRates } from './data/generatearchiverates.js';
+import { showArchivePage } from './views/showarchivepage.js';
 
 // 6. Processes of all functions
 function main() {
@@ -24,6 +25,7 @@ function main() {
     }
   });
 
+  archiveButton.addEventListener('click', showArchivePage);
   archiveButton.addEventListener('click', generateArchiveRates);
 }
 

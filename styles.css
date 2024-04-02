@@ -1,89 +1,239 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+/* 
+General properties 
+*/
 * {
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", "Times New Roman", sans-serif;
+
+  /* border: 1px dashed black; */
 }
 
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+  
 }
 
-body h1, .app-description {
+/* 
+Header properties 
+*/
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+header .header {
+  min-height: 12vh;
+  padding-left: 20px;
+}
+
+header img {
+  width: 80px;
+  height: 80px;
+}
+
+/* 
+Main properties 
+*/
+/* Main container */
+main {
+  min-height: 88vh;
+  min-width: 200px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #87a5f8;
+
+  margin: 0px;
+}
+
+/* Description text properties */
+main .app-description {
+  max-width: 50%;
+  min-width: 100px;
+  
+  font-size: 24px;
+  color: #333;
+  font-weight: 500;
   text-align: center;
+
+  border-left: 5px solid;
+
+  padding-left: 10px;
+  margin-right: 20px;
 }
 
-.currencies-form {
-  max-width: 600px;
-  margin: 0 auto;
+/* Form properties (includes labels, input and select fields, buttons, result areas) */
+main .currencies-form {
+  max-width: 50%;
+  min-width: 150px;
+  background: #fff;
+  border-radius: 12px;
   padding: 20px;
 }
 
-.input-group {
-  margin-bottom: 20px;
-}
-
-.input-group label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-.input-group input {
+/* Input group includes amount field */
+main .input-group {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
 }
 
-.select-group {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+main .input-group input {
+  width: 100%;
 }
 
-.select-group select {
-  width: 48%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+/* Select group includes target and base currencies fields */
+main .select-group {
+  width: 100%;
 }
 
-button {
-  margin-bottom: 20px;
+main .select-group select {
+  width: 40%;
 }
 
-.date-group {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+main .input-group input, .select-group select {
+	font-size: 16px;
+	font-weight: 700;
 
-  margin-bottom: 20px;
+  padding: 8px 15px;
+  margin-bottom: 10px;
 }
 
-.date-group input {
-  width: 20%;
-  padding: 10px;
-  margin-right: 10px;
+/* Result group includes field where you can see a currency exchange rate */
+main .result-group {
   
-  border: 1px solid #ccc;
-  border-radius: 5px;
 }
 
-/* Archive rates group styles */
-.archive-rates-list {
-  list-style-type: none;
-  padding: 0;
-}
-
-.archive-rates-list li {
-  background-color: #f2f2f2;
-  padding: 5px;
+/* Date group includes time periods fields */
+main .date-group {
   margin-bottom: 5px;
-  border-radius: 5px;
-
-  font-size: 12px;
 }
 
-.archive-rates-list li:hover {
-  background-color: #e0e0e0;
+main .date-group input {
+	font-size: 14px;
+	font-weight: 700;
+}
+
+/* Buttons properties */
+main button {
+  width: 100%;
+
+  padding: 14px 0px;
+  margin-bottom: 10px;
+
+  border: none;
+  border-radius: 8px;
+
+  color: #fff;
+
+  background: #6e93f7;
+  
+  cursor: pointer;
+}
+
+main button:hover {
+  background: #4070f4;
+}
+
+/* Archive list includes the list of archived exchange rates */
+
+
+.archive-results {
+  display: none;
+  min-height: 100vh;
+}
+
+.archive-results .archive-rates-list h2 {
+  text-align: center;
+  padding: 15px;
+  
+}
+
+.archive-results .archive-rates-list {
+  list-style-type: none;
+}
+
+.archive-results .archive-rates-list li {
+  padding-left: 10px;
+
+  border: 1px dashed;
+  border-radius: 5px;
+
+  cursor: pointer;
+}
+
+.archive-results .archive-rates-list li:hover {
+  background-color: #e9e8e8;
+  transition: background-color 0.3s ease;
+}
+
+/* Media-queries */
+@media (max-width: 1000px) {
+	main {
+		flex-direction: column;
+	}
+
+  main .app-description {
+    border-left: 0px;
+    margin-bottom: 20px;
+    min-width: 60%;
+  }
+
+  main .currencies-form {
+    min-width: 60%;
+  }
+}
+
+@media (max-width: 800px) {
+  main .app-description {
+    min-width: 70%;
+  }
+
+  main .currencies-form {
+    min-width: 70%;
+  }
+}
+
+@media (max-width: 600px) {
+  main .app-description {
+    min-width: 80%;
+  }
+
+  main .currencies-form {
+    min-width: 80%;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  header .header {
+    font-size: 26px;
+  }
+
+  main .app-description {
+    min-width: 80%;
+    font-size: 18px;
+  }
+
+  main .currencies-form {
+    min-width: 80%;
+  }
+
+  .archive-rates-list {
+    margin: 0px 10px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 240px) {
+  header .header {
+    font-size: 15px;
+  }
+
+  main .currencies-form {
+    margin-bottom: 10px;
+  }
 }
