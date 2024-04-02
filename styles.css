@@ -9,7 +9,7 @@ General properties
   box-sizing: border-box;
   font-family: "Poppins", "Times New Roman", sans-serif;
 
-  border: 1px dashed black;
+  /* border: 1px dashed black; */
 }
 
 body {
@@ -20,11 +20,18 @@ body {
 Header properties 
 */
 header {
-  
+  display: flex;
+  justify-content: space-between;
 }
 
 header .header {
-  height: 10vh;
+  min-height: 12vh;
+  padding-left: 20px;
+}
+
+header img {
+  width: 80px;
+  height: 80px;
 }
 
 /* 
@@ -32,7 +39,8 @@ Main properties
 */
 /* Main container */
 main {
-  height: 90vh;
+  min-height: 88vh;
+  min-width: 200px;
   
   display: flex;
   align-items: center;
@@ -41,14 +49,12 @@ main {
   background: #87a5f8;
 
   margin: 0px;
-
-  min-width: 800px;
 }
 
 /* Description text properties */
 main .app-description {
   max-width: 50%;
-  min-width: 400px;
+  min-width: 100px;
   
   font-size: 24px;
   color: #333;
@@ -59,18 +65,15 @@ main .app-description {
 
   padding-left: 10px;
   margin-right: 20px;
-  margin-left: 20px;
 }
 
 /* Form properties (includes labels, input and select fields, buttons, result areas) */
 main .currencies-form {
   max-width: 50%;
-  min-width: 350px;
-  /* min-width: 400px; */
+  min-width: 150px;
   background: #fff;
   border-radius: 12px;
   padding: 20px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Input group includes amount field */
@@ -136,19 +139,101 @@ main button:hover {
 }
 
 /* Archive list includes the list of archived exchange rates */
+
+
 .archive-results {
   display: none;
   min-height: 100vh;
 }
 
-.archive-results .archive-rates-list {
+.archive-results .archive-rates-list h2 {
+  text-align: center;
+  padding: 15px;
   
+}
+
+.archive-results .archive-rates-list {
+  list-style-type: none;
 }
 
 .archive-results .archive-rates-list li {
-  
+  padding-left: 10px;
+
+  border: 1px dashed;
+  border-radius: 5px;
+
+  cursor: pointer;
 }
 
 .archive-results .archive-rates-list li:hover {
-  
+  background-color: #e9e8e8;
+  transition: background-color 0.3s ease;
+}
+
+/* Media-queries */
+@media (max-width: 1000px) {
+	main {
+		flex-direction: column;
+	}
+
+  main .app-description {
+    border-left: 0px;
+    margin-bottom: 20px;
+    min-width: 60%;
+  }
+
+  main .currencies-form {
+    min-width: 60%;
+  }
+}
+
+@media (max-width: 800px) {
+  main .app-description {
+    min-width: 70%;
+  }
+
+  main .currencies-form {
+    min-width: 70%;
+  }
+}
+
+@media (max-width: 600px) {
+  main .app-description {
+    min-width: 80%;
+  }
+
+  main .currencies-form {
+    min-width: 80%;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  header .header {
+    font-size: 26px;
+  }
+
+  main .app-description {
+    min-width: 80%;
+    font-size: 18px;
+  }
+
+  main .currencies-form {
+    min-width: 80%;
+  }
+
+  .archive-rates-list {
+    margin: 0px 10px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 240px) {
+  header .header {
+    font-size: 15px;
+  }
+
+  main .currencies-form {
+    margin-bottom: 10px;
+  }
 }

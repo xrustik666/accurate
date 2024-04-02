@@ -1,8 +1,8 @@
-import { amount, result, convertButton, archiveButton } from './components/elements.js';
+import { amount, result, convertButton, archiveButton } from './views/elements.js';
 import { setCoinsList } from './data/setcoinslist.js';
 import { convertCoin } from './data/convertcoin.js';
 import { generateArchiveRates } from './data/generatearchiverates.js';
-import { showArchivePage } from './components/showarchivepage.js';
+import { showArchivePage } from './views/showarchivepage.js';
 
 // 6. Processes of all functions
 function main() {
