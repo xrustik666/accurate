@@ -149,11 +149,12 @@ main button:hover {
 .archive-results .archive-rates-list h2 {
   text-align: center;
   padding: 15px;
-  
 }
 
 .archive-results .archive-rates-list {
   list-style-type: none;
+
+  margin: 10px;
 }
 
 .archive-results .archive-rates-list li {
