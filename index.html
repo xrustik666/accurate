@@ -1,47 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Currency converter</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Currency converter</title>
 
-  <link rel="stylesheet" href="styles.css">
-</head>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-<body>
+  <body>
+    <h1>AccuRate</h1>
+    <p class="app-description">
+      Free currency converter. Get accurate and relevant foreign exchange rates
+    </p>
 
-<h1>AccuRate</h1>
-<p class="app-description">Free currency converter. Get accurate and relevant foreign exchange rates</p>
+    <div class="currencies-form">
+      <div class="input-group">
+        <label>Amount:</label>
+        <input
+          type="number"
+          class="amount"
+          placeholder="Enter amount"
+          step=".1"
+          min="0"
+        />
+      </div>
+      <div class="select-group">
+        <select class="target-currency"></select>
 
-<div class="currencies-form">
-  <div class="input-group">
-      <label>Amount:</label>
-      <input type="number" class="amount" placeholder="Enter amount" step=".1">
-  </div>
-  <div class="select-group">
-      <select class="target-currency"></select>
+        <select class="base-currency"></select>
+      </div>
 
-      <select class="base-currency"></select>
-  </div>
+      <div class="result-group">
+        <p class="result">----</p>
+      </div>
 
-  <div class="result-group">
-    <p class="result">----</p>
-  </div>
+      <button class="convertButton">Convert</button>
 
-  <button class="convertButton">Convert</button>
+      <div class="date-group">
+        <input type="date" class="from-date" />
 
-  <div class="date-group">
-    <input type = "date" class="from-date">
+        <input type="date" class="to-date" />
+      </div>
 
-    <input type = "date" class="to-date">
-  </div>
+      <button class="archiveButton">Show archive rates</button>
 
-  <button class="archiveButton">Show archive rates</button>
+      <ul class="archive-rates-list"></ul>
+    </div>
 
-  <ul class = "archive-rates-list"></ul>
-</div>
-
-<script type="module" src="src/app.js"></script>
-
-</body>
+    <script type="module" src="src/app.js"></script>
+  </body>
 </html>

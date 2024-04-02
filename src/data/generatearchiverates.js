@@ -10,23 +10,21 @@ function generateArchiveRates() {
 
       return response.json();
     })
-    .catch(function(error) {
-      alert(`There are temporary problems at server. Please try to request archive data later (${error})`)
-    })
-    .then(function(data) {
+    // Success fetching scenario
+    .then(function (data) {
       // if the page already contains some archive data, it will be deleted
       archiveRatesList.innerHTML = '';
-
+    
       // checks if there is some data about rates > add title 'Archive rates' on the page
       if (data.rates != '') {
         const archiveListTitle = document.createElement('h2');
         archiveListTitle.textContent = 'Archive rates';
         archiveRatesList.appendChild(archiveListTitle);
       }
-
+    
       // checks if both dates are not empty
       if ((fromDate.value && toDate.value) === "") {
-        archiveRatesList.innerHTML = '';
+        archiveRatesList.innerHTML = 'Please, select time period';
       }
       
       // add data about archive rates on the page
@@ -36,6 +34,13 @@ function generateArchiveRates() {
         
         archiveRatesList.appendChild(archiveElement);
       }
+    })
+    // Failed fetching scenario
+    .catch(function () {
+      // if the page already contains some archive data, it will be deleted
+      archiveRatesList.innerHTML = '';
+  
+      archiveRatesList.innerHTML = 'No information for this time period or for this currency pair';
     })
 }
 

@@ -18,7 +18,7 @@ function getCoins (params) {
       return response.json();
     })
     .catch(function(error) {
-      alert(`There is no information about this currency pair (${error})`);
+      return error;
     })
 }
 

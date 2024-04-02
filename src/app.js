@@ -1,4 +1,4 @@
-import { groups, targetCoin, baseCoin, amount, result, convertButton, fromDate, toDate, archiveButton, archiveRatesList } from './elements.js';
+import { amount, result, convertButton, archiveButton } from './elements.js';
 import { setCoinsList } from './data/setcoinslist.js';
 import { convertCoin } from './data/convertcoin.js';
 import { generateArchiveRates } from './data/generatearchiverates.js';

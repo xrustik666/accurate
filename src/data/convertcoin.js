@@ -4,23 +4,23 @@ import {getParams } from './getparams.js';
 import { targetCoin, baseCoin, amount, result } from '../elements.js';
 
 function convertCoin() {
-  if (amount.value === "") {
+  if (amount.value == "" || targetCoin.value === baseCoin.value) {
     result.style.color = 'red';
-    result.textContent = 'Please, enter amount';
   } else {
     result.style.color = 'black';
-  }
-
-  if (targetCoin.value === baseCoin.value && amount.value !== "") {
-    result.textContent = `${amount.value} ${baseCoin.value}`;
   }
 
   const params = getParams(amount.value, targetCoin.value, baseCoin.value);
 
   // (getCoins() is called with arguments)
   getCoins (params)
+    // Success fetching scenario
     .then(function(data) {
         result.textContent = `${amount.value} ${targetCoin.value} = ${Object.values(data.rates)} ${baseCoin.value}`;
+    })
+    // Failed fetching scenario
+    .catch(function() {
+      result.textContent = `Please, carefully check you input data`;
     })
 }
 
