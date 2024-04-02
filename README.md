@@ -17,5 +17,5 @@ Root folder contains '**index.html**' and '**styles.css**'. These files are resp
 '**resources**' folder contains the logo of the project.
 
 '**src**' folder contains 2 folders: '**data**' and '**views**'.
-The "**data**" folder contains functions that are responsible for implementing the logic. These functions receive data via the API and bring it to the form that the user will see on the site.
+The "**data**" folder contains functions that are responsible for implementing the logic. These functions receive data via the API and transfer it to 'Views' functions in the form that a user will see on the site.
 The "**views**" folder basically contains the code responsible for adding this data to '**index.html**'.
