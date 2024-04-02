@@ -114,19 +114,7 @@ main .date-group input {
 	font-weight: 700;
 }
 
-/* Archive list includes the list of archived exchange rates */
-main .archive-rates-list {
-  
-}
-
-main .archive-rates-list li {
-  
-}
-
-main .archive-rates-list li:hover {
-  
-}
-
+/* Buttons properties */
 main button {
   width: 100%;
 
@@ -147,3 +135,20 @@ main button:hover {
   background: #4070f4;
 }
 
+/* Archive list includes the list of archived exchange rates */
+.archive-results {
+  display: none;
+  min-height: 100vh;
+}
+
+.archive-results .archive-rates-list {
+  
+}
+
+.archive-results .archive-rates-list li {
+  
+}
+
+.archive-results .archive-rates-list li:hover {
+  
+}

@@ -1,4 +1,4 @@
-import { targetCoin, baseCoin, fromDate, toDate, archiveRatesList } from '../elements.js';
+import { targetCoin, baseCoin, fromDate, toDate, archiveRatesList } from '../components/elements.js';
 
 // 5. Shows the exchange rate in previous time periods
 function generateArchiveRates() {
